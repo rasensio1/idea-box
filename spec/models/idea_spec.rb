@@ -21,7 +21,12 @@ describe Idea do
     expect(new_idea.quality).to eq('thousand')
   end
 
+  it 'can only have the three available qualities' do
+    idea = new_idea
+    idea.save
 
+    expect{idea.update_attributes(quality: 3)}.to raise_error
+  end
 
   def new_idea
     Idea.new(title: "Hi", body: "body")
