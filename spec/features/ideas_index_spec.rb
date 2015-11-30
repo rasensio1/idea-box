@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'the app' do
 
-  describe 'the index' do
+  describe 'the index', js: true do
     it 'loads all the ideas' do
       Idea.create(title: "first", body: "yeah")
       Idea.create(title: "second", body: "okedoke")
