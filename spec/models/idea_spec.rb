@@ -11,6 +11,13 @@ describe Idea do
     expect(idea).to_not be_valid
   end
 
+  it 'is invalid without body' do
+    idea = new_idea
+    idea.body = nil
+    expect(idea).to_not be_valid
+  end
+
+
 
   def new_idea
     Idea.new(title: "Hi", body: "body", quality: 1)
