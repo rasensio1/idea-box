@@ -17,9 +17,13 @@ describe Idea do
     expect(idea).to_not be_valid
   end
 
+  it 'is has default quality of thousand' do
+    expect(new_idea.quality).to eq('thousand')
+  end
+
 
 
   def new_idea
-    Idea.new(title: "Hi", body: "body", quality: 1)
+    Idea.new(title: "Hi", body: "body")
   end
 end
