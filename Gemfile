@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.4'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -19,6 +18,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do

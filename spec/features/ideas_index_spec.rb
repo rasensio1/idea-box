@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.feature 'the app' do
 
   describe 'the index', js: true do
@@ -8,6 +7,8 @@ RSpec.feature 'the app' do
       Idea.create(title: "second", body: "okedoke")
 
       visit root_path
+
+      wait_for_ajax
 
       expect(page).to have_content("first")
       expect(page).to have_content("yeah")
