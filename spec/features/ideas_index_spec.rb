@@ -49,7 +49,7 @@ RSpec.feature 'the app' do
 
       visit root_path
 
-      find("#1-delete-button").click
+      find("#1-delete").click
       expect(page).to_not have_content("yeah")
     end
 
