@@ -1,13 +1,7 @@
-$( window).load(function() {
-  deleteIdea();
-});
-
 function deleteIdea() {
-  console.log("loaded")
   $('.delete-button').click(function() {
 
     var ideaId = $(this).attr('id');
-    console.log("clicked");
 
     $.ajax({
        method: "DELETE",
@@ -16,7 +10,6 @@ function deleteIdea() {
        success: function() {
          clearIdeas();
          loadIdeas();
-         prepareDelete();
        }
     });
   });

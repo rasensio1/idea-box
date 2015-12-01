@@ -3,6 +3,11 @@ class Api::V1::IdeasController < ApplicationController
     render json: Idea.order(created_at: :desc)
   end
 
+  def update
+    my_idea.update_attributes(quality: QualityChanger.go(params, my_idea.quality))
+    render json: true
+  end
+
   def create
     idea = Idea.new(idea_params)
     if idea.save
@@ -17,7 +22,12 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def destroy
-    Idea.find(params[:id]).delete
+    my_idea.delete
     render json: true
+  end
+
+  private
+  def my_idea
+    Idea.find(params[:id])
   end
 end
