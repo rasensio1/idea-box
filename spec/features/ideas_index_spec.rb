@@ -62,6 +62,15 @@ RSpec.feature 'the app' do
         find(".promote-button").click
         expect(page).to have_content("million")
       end
+
+      it 'can decrease quality' do
+        Idea.create!(title: "first", body: "yeah", quality: "billion")
+
+        visit root_path
+
+        find(".demote-button").click
+        expect(page).to have_content("million")
+      end
     end
 
 
