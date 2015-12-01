@@ -53,6 +53,18 @@ RSpec.feature 'the app' do
       expect(page).to_not have_content("yeah")
     end
 
+    describe 'changing quality', js: true do
+      it 'can increase quality' do
+        Idea.create!(title: "first", body: "yeah")
+
+        visit root_path
+
+        find(".promote-button").click
+        expect(page).to have_content("million")
+      end
+    end
+
+
   end
 end
 
