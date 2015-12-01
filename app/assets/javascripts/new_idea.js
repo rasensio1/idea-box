@@ -15,6 +15,9 @@ function newIdea() {
          clearIdeas();
          loadIdeas()
          clearForms()
+       },
+       failure: function () {
+         displayError()
        }
     });
   });
@@ -31,4 +34,8 @@ function getBody() {
 function clearForms() {
   $('#idea_body').val("")
   $('#idea_title').val("")
+}
+
+function displayError() {
+  console.log("nope")
 }
