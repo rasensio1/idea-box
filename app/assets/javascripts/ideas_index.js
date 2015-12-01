@@ -13,8 +13,8 @@ function loadIdeas() {
 function renderIdea(idea, index, last) {
   $('#ideas-container')
     .append("<div class='idea-container'>"
-             + "<h1>" + idea.title + "</h1>"
-             + "<p>" + idea.body + "<p>"
+             + "<h1 class='title'>" + idea.title + "</h1>"
+             + "<p class='body'>" + idea.body + "<p>"
              + "<p>" + idea.quality + "<p>"
              + "<div class='ui button promote-button' id='" + idea.id + "'>Promote</div>"
              + "<div class='ui button demote-button' id='" + idea.id + "'>Demote</div>"
@@ -24,6 +24,7 @@ function renderIdea(idea, index, last) {
     if (index === last) {
       deleteIdea();
       prepareMoting();
+      prepareEditing();
     }
 }
 
