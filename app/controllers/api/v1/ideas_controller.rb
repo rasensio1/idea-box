@@ -4,6 +4,8 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def update
+    my_idea.update_attributes(quality: QualityChanger.go(params))
+    render json: true
   end
 
   def create
@@ -20,7 +22,12 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def destroy
-    Idea.find(params[:id]).delete
+    my_idea.delete
     render json: true
+  end
+
+  private
+  def my_idea
+    Idea.find(params[:id])
   end
 end
