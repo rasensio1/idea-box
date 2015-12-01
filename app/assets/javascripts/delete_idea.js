@@ -10,7 +10,7 @@ function deleteIdea() {
 
     $.ajax({
        method: "DELETE",
-       url: "api/v1/ideas",
+       url: "api/v1/ideas/" + ideaID,
        data: { id: ideaId },
        success: function() {
          clearIdeas();
