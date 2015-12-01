@@ -37,5 +37,5 @@ function clearForms() {
 }
 
 function displayError() {
-  console.log("nope")
+  alert("nope")
 }
