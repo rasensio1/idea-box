@@ -37,5 +37,5 @@ function clearForms() {
 }
 
 function displayError() {
-  alert("nope")
+  alert("You need to include a title and a body!")
 }

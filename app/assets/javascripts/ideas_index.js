@@ -1,6 +1,5 @@
 $( document ).ready(function() {
   loadIdeas();
-  deleteIdea();
 });
 
 function loadIdeas() {
