@@ -18,10 +18,10 @@ RSpec.feature 'the app' do
     it 'can add ideas', js: true do
       visit root_path
 
-      page.fill_in 'input-title',
+      page.fill_in 'idea_title',
         :with => 'my title'
 
-      page.fill_in 'input-body',
+      page.fill_in 'idea_body',
         :with => 'my body'
 
       click_on "Submit"
