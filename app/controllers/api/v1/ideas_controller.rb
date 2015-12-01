@@ -4,12 +4,7 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def create
-    new_idea = Idea.new(idea_params)
-    if new_idea.save
-      render json: {text: "Saved new idea!"}
-    else
-      render json: {text: "Idea not saved!"}
-    end
+    Idea.create(idea_params)
   end
 
   def idea_params
