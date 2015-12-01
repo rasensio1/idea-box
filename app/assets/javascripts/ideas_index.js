@@ -17,6 +17,7 @@ function renderIdea(idea) {
            + "<p>" + idea.quality + "<p>"
            + "<div class='ui button delete-button' id='" + idea.id + "'>Delete</div>"
            +"</div>")
+    deleteIdea();
 }
 
 function clearIdeas() {
