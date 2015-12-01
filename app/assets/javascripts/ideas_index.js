@@ -18,6 +18,7 @@ function renderIdea(idea, index, last) {
              + "<p>" + idea.quality + "<p>"
              + "<div class='ui button promote-button' id='" + idea.id + "'>Promote</div>"
              + "<div class='ui button demote-button' id='" + idea.id + "'>Demote</div>"
+             + "<div class='ui button edit-button' id='" + idea.id + "'>Edit</div>"
              + "<div class='ui button delete-button' id='" + idea.id + "'>Delete</div>"
            +"</div>");
     if (index === last) {

@@ -92,8 +92,6 @@ RSpec.feature 'the app' do
         expect(page).to have_content("yeah yeah yeah")
       end
     end
-
-
   end
 end
 
