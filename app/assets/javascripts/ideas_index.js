@@ -15,11 +15,14 @@ function renderIdea(idea, index, last) {
     .append("<div class='idea-container'>"
              + "<h1>" + idea.title + "</h1>"
              + "<p>" + idea.body + "<p>"
-             + "<div class='promote-button'>" + "<p>" + idea.quality + "<p>" + "</div>"
+             + "<p>" + idea.quality + "<p>"
+             + "<div class='ui button promote-button' id='" + idea.id + "'>Promote</div>"
+             + "<div class='ui button demote-button' id='" + idea.id + "'>Demote</div>"
              + "<div class='ui button delete-button' id='" + idea.id + "'>Delete</div>"
            +"</div>");
     if (index === last) {
       deleteIdea();
+      prepareMoting();
     }
 }
 
