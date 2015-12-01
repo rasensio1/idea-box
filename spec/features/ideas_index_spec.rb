@@ -15,20 +15,22 @@ RSpec.feature 'the app' do
       expect(page).to have_content("okedoke")
     end
 
-    it 'can add ideas', js: true do
-      visit root_path
+    describe 'adding ideas', js: true do
+      it 'can add ideas' do
+        visit root_path
 
-      page.fill_in 'idea_title',
-        :with => 'my title'
+        page.fill_in 'idea_title',
+          :with => 'my title'
 
-      page.fill_in 'idea_body',
-        :with => 'my body'
+        page.fill_in 'idea_body',
+          :with => 'my body'
 
-      find("#submit-button").click
+        find("#submit-button").click
 
-      expect(page).to have_content("my title")
-      expect(page).to have_content("my body")
-      expect(page).to have_content("thousand")
+        expect(page).to have_content("my title")
+        expect(page).to have_content("my body")
+        expect(page).to have_content("thousand")
+      end
     end
   end
 end
