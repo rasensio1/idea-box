@@ -31,6 +31,20 @@ RSpec.feature 'the app' do
         expect(page).to have_content("my body")
         expect(page).to have_content("thousand")
       end
+
+      it 'can doesnt add invaid ideas' do
+        visit root_path
+
+        page.fill_in 'idea_body',
+          :with => 'my body'
+
+        find("#submit-button").click
+
+        expect(page).to_not have_content("my body")
+      end
+
+
+
     end
   end
 end

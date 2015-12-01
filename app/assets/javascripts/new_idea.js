@@ -14,6 +14,7 @@ function newIdea() {
        success: function() {
          clearIdeas();
          loadIdeas()
+         clearForms()
        }
     });
   });
@@ -25,4 +26,9 @@ function getTitle() {
 
 function getBody() {
   return $('#idea_body').val()
+}
+
+function clearForms() {
+  $('#idea_body').val("")
+  $('#idea_title').val("")
 }
