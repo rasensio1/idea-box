@@ -3,6 +3,9 @@ class Api::V1::IdeasController < ApplicationController
     render json: Idea.order(created_at: :desc)
   end
 
+  def update
+  end
+
   def create
     idea = Idea.new(idea_params)
     if idea.save
