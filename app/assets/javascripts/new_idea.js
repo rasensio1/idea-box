@@ -16,7 +16,7 @@ function newIdea() {
          loadIdeas()
          clearForms()
        },
-       failure: function () {
+       error: function () {
          displayError()
        }
     });

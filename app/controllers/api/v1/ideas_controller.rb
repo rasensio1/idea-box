@@ -4,8 +4,12 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def create
-    Idea.create(idea_params)
-    render json: true
+    idea = Idea.new(idea_params)
+    if idea.save
+      render json: true
+    else
+      render json: true, status: 400
+    end
   end
 
   def idea_params
