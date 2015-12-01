@@ -13,10 +13,10 @@ function loadIdeas() {
 function renderIdea(idea, index, last) {
   $('#ideas-container')
     .append("<div class='idea-container'>"
-           + "<h1>" + idea.title + "</h1>"
-           + "<p>" + idea.body + "<p>"
-           + "<div class='promote-button'>" + "<p>" + idea.quality + "<p>" + "</div>"
-           + "<div class='ui button delete-button' id='" + idea.id + "'>Delete</div>"
+             + "<h1>" + idea.title + "</h1>"
+             + "<p>" + idea.body + "<p>"
+             + "<div class='promote-button'>" + "<p>" + idea.quality + "<p>" + "</div>"
+             + "<div class='ui button delete-button' id='" + idea.id + "'>Delete</div>"
            +"</div>");
     if (index === last) {
       deleteIdea();
