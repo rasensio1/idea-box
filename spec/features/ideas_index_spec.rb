@@ -10,6 +10,7 @@ RSpec.feature 'the app' do
 
       expect(page).to have_content("first")
       expect(page).to have_content("yeah")
+      expect(page).to have_content("thousand")
       expect(page).to have_content("second")
       expect(page).to have_content("okedoke")
     end
