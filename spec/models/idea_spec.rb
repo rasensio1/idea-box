@@ -25,7 +25,7 @@ describe Idea do
     idea = new_idea
     idea.save
 
-    expect{idea.update_attributes(quality: 3)}.to raise_error
+    expect{idea.update_attributes(quality: 3)}.to raise_error(ArgumentError)
   end
 
   def new_idea
