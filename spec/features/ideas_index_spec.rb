@@ -43,6 +43,16 @@ RSpec.feature 'the app' do
         expect(page).to have_content("nope")
       end
     end
+
+    it 'can delete ideas', js: true do
+      Idea.create!(title: "first", body: "yeah")
+
+      visit root_path
+
+      find("#1-delete-button").click
+      expect(page).to_not have_content("yeah")
+    end
+
   end
 end
 
