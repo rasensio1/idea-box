@@ -4,7 +4,7 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def update
-    my_idea.update_attributes(quality: QualityChanger.go(params))
+    my_idea.update_attributes(quality: QualityChanger.go(params, my_idea.quality))
     render json: true
   end
 
