@@ -1,17 +1,19 @@
 function prepareEditing() {
   $('.edit-button').click(function() {
-    console.log('clicked edit button')
     renderEditForm(this)
     });
 };
 
 function renderEditForm(node) {
-  debugger;
-  var title = $(node).siblings('.title').text()
-  var body = $(node).siblings('.body').text()
+  var title = $(node).siblings('.title').text();
+  var body = $(node).siblings('.body').text();
+  var id = $(node).attr('id');
   $(node).parent().html(
-      "<input type='text' name='idea[title]' id='idea_title'>"
-      + "<input type='text' name='idea[body]' id='idea_body'>"
-      + "<div id='submit-button' class='ui button'><p>Submit</p></div>"
+      "<input type='text' name='idea[title]' class='edit_idea_title' id='" +id+"'>"
+      + "<input type='text' name='idea[body]' class='edit_idea_body' id='"+id+"'>"
+      + "<div class='ui button edit_idea_button' id='"+id+ "'><p>Submit</p></div>"
       )
+  $("#"+id+".edit_idea_title").val(title)
+  $("#"+id+".edit_idea_body").val(body)
+
 };
