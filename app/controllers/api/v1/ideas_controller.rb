@@ -5,9 +5,10 @@ class Api::V1::IdeasController < ApplicationController
 
   def create
     Idea.create(idea_params)
+    render json: true
   end
 
   def idea_params
-    params.require(:idea).permit(:title, :body)
+    {title: params["title"], body: params["body"]}
   end
 end

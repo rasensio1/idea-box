@@ -8,8 +8,8 @@ function newIdea() {
     $.ajax({
        method: "POST",
        url: "api/v1/ideas",
-       data: { title: "title",
-               body: "body"
+       data: { title: getTitle(),
+               body: getBody() 
              },
        success: function() {
          clearIdeas();
@@ -17,4 +17,12 @@ function newIdea() {
        }
     });
   });
+}
+
+function getTitle() {
+  return $('#idea_title').val()
+}
+
+function getBody() {
+  return $('#idea_body').val()
 }
