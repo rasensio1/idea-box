@@ -73,6 +73,26 @@ RSpec.feature 'the app' do
       end
     end
 
+    describe 'editing an idea', js: true do
+      it 'can edit the title and body' do
+        Idea.create!(title: "first", body: "yeah", quality: "billion")
+        visit root_path
+
+        find(".edit-button").click
+
+        page.fill_in 'edit_idea_title',
+          :with => 'first oh yeah'
+
+        page.fill_in 'edit_idea_body',
+          :with => 'yeah yeah yeah'
+
+        find(".submit-edit-button").click
+
+        expect(page).to have_content("first oh yeah")
+        expect(page).to have_content("yeah yeah yeah")
+      end
+    end
+
 
   end
 end
