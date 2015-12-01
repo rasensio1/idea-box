@@ -20,14 +20,13 @@ function demoteIdea() {
 
 function mote(proOrDemote, ideaId) {
   $.ajax({
-     method: "POST",
+     method: "PATCH",
      url: "api/v1/ideas/" + ideaId,
      data: { id: ideaId,
              dothing: proOrDemote  },
      success: function() {
        clearIdeas();
        loadIdeas();
-       prepareDelete();
      }
   });
 }
