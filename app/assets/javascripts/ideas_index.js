@@ -3,7 +3,6 @@ $( document ).ready(function() {
 });
 
 function loadIdeas() {
-  console.log("its working");
   $.getJSON('api/v1/ideas')
     .then(function(ideas) {
       $.each(ideas, function(index, idea) { renderIdea(idea) });
@@ -18,3 +17,7 @@ function renderIdea(idea) {
            + "<p>" + idea.quality+ "<p>"
            +"</div>")
 }
+
+function clearIdeas() {
+  $('#ideas-container').children().remove()
+};

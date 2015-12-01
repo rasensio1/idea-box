@@ -1,2 +1,8 @@
-<div id="ideas-container"></div>
+<%= form_for [:api, :v1, @idea] do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :body %>
+<% end %>
+<div id="submit-button" class="ui button"><p>Submit</p></div>
+
 <h1>This is the show!</h1>
+<div id="ideas-container"></div>
