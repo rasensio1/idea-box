@@ -15,4 +15,9 @@ class Api::V1::IdeasController < ApplicationController
   def idea_params
     {title: params["title"], body: params["body"]}
   end
+
+  def destroy
+    Idea.find(params[:id]).delete
+    render json: true
+  end
 end
