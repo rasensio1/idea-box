@@ -5,7 +5,7 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def index
-    render json: Idea.all
+    render json: Idea.order(params["order"])
   end
 
   def update
