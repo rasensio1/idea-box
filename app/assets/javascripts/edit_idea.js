@@ -10,10 +10,17 @@ function renderEditForm(node) {
   var id = $(node).attr('id');
   $(node).parent().html(
       "<form class='ui form'>"
-      + "<div class='field'><input type='text' name='idea[title]' class='edit_idea_title' id='" +id+"'></div>"
-    + "<div class='field'><input type='text' name='idea[body]' class='edit_idea_body' id='"+id+"'></div>"
-    + "<div class='ui button edit_idea_submit' id='"+id+ "'><p>Submit</p></div></form>"
-      )
+        + "<div class='field'>" 
+            + "<input type='text' name='idea[title]' class='edit_idea_title' id='" +id+"'>" 
+        + "</div>"
+        + "<div class='field'>" 
+            + "<input type='text' name='idea[body]' class='edit_idea_body' id='"+id+"'>" 
+        + "</div>"
+        + "<div class='ui button edit_idea_submit' id='"+id+ "'>" 
+            + "<p>Submit</p>" 
+        + "</div>" 
+    + "</form>")
+
   $("#"+id+".edit_idea_title").val(title)
   $("#"+id+".edit_idea_body").val(body)
   prepareEditSubmit();
