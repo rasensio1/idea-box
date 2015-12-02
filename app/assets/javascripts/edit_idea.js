@@ -9,9 +9,10 @@ function renderEditForm(node) {
   var body = $(node).siblings('.body').text();
   var id = $(node).attr('id');
   $(node).parent().html(
-      "<input type='text' name='idea[title]' class='edit_idea_title' id='" +id+"'>"
-      + "<input type='text' name='idea[body]' class='edit_idea_body' id='"+id+"'>"
-      + "<div class='ui button edit_idea_submit' id='"+id+ "'><p>Submit</p></div>"
+      "<form class='ui form'>"
+      + "<div class='field'><input type='text' name='idea[title]' class='edit_idea_title' id='" +id+"'></div>"
+    + "<div class='field'><input type='text' name='idea[body]' class='edit_idea_body' id='"+id+"'></div>"
+    + "<div class='ui button edit_idea_submit' id='"+id+ "'><p>Submit</p></div></form>"
       )
   $("#"+id+".edit_idea_title").val(title)
   $("#"+id+".edit_idea_body").val(body)
@@ -20,9 +21,10 @@ function renderEditForm(node) {
 
 function prepareEditSubmit() {
   $(".edit_idea_submit").click(function() {
-    var title = $(this).siblings('.edit_idea_title').val()
-    var body = $(this).siblings('.edit_idea_body').val()
+    var title = $(this).siblings().children('.edit_idea_title').val()
+    var body = $(this).siblings().children('.edit_idea_body').val()
     var id = $(this).attr('id')
+    debugger;
     $.ajax({
        method: "PATCH",
        url: "api/v1/ideas/" + id,
