@@ -5,14 +5,15 @@ $( document ).ready(function() {
 function loadIdeas() {
   $.getJSON('api/v1/ideas')
     .then(function(ideas) {
-      var last = ideas.length - 1
-      $.each(ideas, function(index, idea) { renderIdea(idea, index, last) });
+      $('#ideas-container').html(ideas.map(makeIdea))
+      deleteIdea();
+      prepareMoting();
+      prepareEditing();
     })
 }
 
-function renderIdea(idea, index, last) {
-  $('#ideas-container')
-    .append("<div class='ui segment idea-container'>"
+function makeIdea(idea) {
+  return("<div class='ui segment idea-container'>"
              + "<h1 class='title'>" + idea.title + "</h1>"
              + "<p class='body'>" + truncate(idea.body) + "<p>"
              + "<p class='quality'>" + idea.quality + "<p>"
@@ -20,12 +21,7 @@ function renderIdea(idea, index, last) {
              + "<div class='ui button demote-button' id='" + idea.id + "'>Demote</div>"
              + "<div class='ui button edit-button' id='" + idea.id + "'>Edit</div>"
              + "<div class='ui button delete-button' id='" + idea.id + "'>Delete</div>"
-           +"</div>");
-    if (index === last) {
-      deleteIdea();
-      prepareMoting();
-      prepareEditing();
-    }
+           +"</div>")
 }
 
 function clearIdeas() {
