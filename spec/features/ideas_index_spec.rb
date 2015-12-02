@@ -95,6 +95,21 @@ RSpec.feature 'the app' do
         expect(page).to have_content("yeah yeah yeah")
       end
     end
+
+    describe 'filtering' do
+      it 'can find things that exist' do
+        Idea.create!(title: "first", body: "yeah", quality: "billion")
+        Idea.create!(title: "firstest", body: "OKOK", quality: "billion")
+
+        visit root_path
+
+        page.fill_in 'page[search]',
+            :with => 'first'
+
+        expect(page).to have_content("yeah")
+        expect(page).to have_content("OKOK")
+      end
+    end
   end
 end
 
