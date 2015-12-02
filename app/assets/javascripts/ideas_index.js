@@ -3,7 +3,7 @@ $( document ).ready(function() {
 });
 
 function loadIdeas() {
-  $.getJSON('api/v1/ideas')
+  $.getJSON('api/v1/ideas', {order: "created_at desc"})
     .then(function(ideas) {
       $('#ideas-container').html(ideas.map(makeIdea));
       prepareActions();
