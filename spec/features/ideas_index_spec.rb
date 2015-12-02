@@ -80,13 +80,16 @@ RSpec.feature 'the app' do
 
         find(".edit-button").click
 
-        page.fill_in 'edit_idea_title',
-          :with => 'first oh yeah'
+        within(:css, ".idea-container") do
+          page.fill_in 'idea[title]',
+            :with => 'first oh yeah'
 
-        page.fill_in 'edit_idea_body',
-          :with => 'yeah yeah yeah'
+          page.fill_in 'idea[body]',
+            :with => 'yeah yeah yeah'
+        end
 
-        find(".submit-edit-button").click
+
+        find(".edit_idea_submit").click
 
         expect(page).to have_content("first oh yeah")
         expect(page).to have_content("yeah yeah yeah")
