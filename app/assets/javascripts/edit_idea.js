@@ -11,12 +11,12 @@ function renderEditForm(node) {
   $(node).parent().html(
       "<form class='ui form'>"
         + "<div class='field'>" 
-            + "<input type='text' name='idea[title]' class='edit_idea_title' id='" +id+"'>" 
+            + "<input type='text' name='idea[title]' class='edit_idea_title' id='" + id +"'>" 
         + "</div>"
         + "<div class='field'>" 
-            + "<input type='text' name='idea[body]' class='edit_idea_body' id='"+id+"'>" 
+            + "<input type='text' name='idea[body]' class='edit_idea_body' id='"+ id +"'>" 
         + "</div>"
-        + "<div class='ui button edit_idea_submit' id='"+id+ "'>" 
+        + "<div class='ui button edit_idea_submit' id='"+ id +"'>" 
             + "<p>Submit</p>" 
         + "</div>" 
     + "</form>")
