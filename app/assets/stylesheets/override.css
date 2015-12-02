@@ -1,3 +1,18 @@
+#page-container {
+  padding-top: 7em;
+  padding-left: 4em;
+  padding-right: 4em;
+}
+
+.welcome {
+  font-size: 3em;
+}
+
+#ideas-container {
+  padding-top: 4em;
+  padding-left: 4em;
+  padding-right: 4em;
+}
 .hidden {
   display: none
 }
