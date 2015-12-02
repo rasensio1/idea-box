@@ -4,7 +4,7 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def update
-    my_idea.update_attributes(quality: QualityChanger.go(params, my_idea.quality))
+    my_idea.update_attributes(edit_params)
     render json: true
   end
 
@@ -29,5 +29,11 @@ class Api::V1::IdeasController < ApplicationController
   private
   def my_idea
     Idea.find(params[:id])
+  end
+
+  def edit_params
+    params.permit(:title, :body).merge(
+      {quality: QualityChanger.go(params, my_idea.quality)}
+    )
   end
 end

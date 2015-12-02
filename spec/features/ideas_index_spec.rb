@@ -62,9 +62,39 @@ RSpec.feature 'the app' do
         find(".promote-button").click
         expect(page).to have_content("million")
       end
+
+      it 'can decrease quality' do
+        Idea.create!(title: "first", body: "yeah", quality: "billion")
+
+        visit root_path
+
+        find(".demote-button").click
+        expect(page).to have_content("million")
+      end
     end
 
+    describe 'editing an idea', js: true do
+      it 'can edit the title and body' do
+        Idea.create!(title: "first", body: "yeah", quality: "billion")
+        visit root_path
 
+        find(".edit-button").click
+
+        within(:css, ".idea-container") do
+          page.fill_in 'idea[title]',
+            :with => 'first oh yeah'
+
+          page.fill_in 'idea[body]',
+            :with => 'yeah yeah yeah'
+        end
+
+
+        find(".edit_idea_submit").click
+
+        expect(page).to have_content("first oh yeah")
+        expect(page).to have_content("yeah yeah yeah")
+      end
+    end
   end
 end
 

@@ -1,9 +1,13 @@
 class QualityChanger
   def self.go(params, old_quality)
-    if params["dothing"] == "promote"
-      promote(old_quality)
+    if params["dothing"]
+      if params["dothing"] == "promote"
+        promote(old_quality)
+      else
+        demote(old_quality)
+      end
     else
-      demote(old_quality)
+      old_quality
     end
   end
 
