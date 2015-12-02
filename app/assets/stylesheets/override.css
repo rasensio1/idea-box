@@ -8,6 +8,17 @@
   font-size: 3em;
 }
 
+.quality {
+  font-size: 1em;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+
+}
+
+.idea-search {
+  padding-top: 7em;
+}
+
 #ideas-container {
   padding-top: 4em;
   padding-left: 4em;

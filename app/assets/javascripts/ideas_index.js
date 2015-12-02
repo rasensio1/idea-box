@@ -15,7 +15,7 @@ function renderIdea(idea, index, last) {
     .append("<div class='ui segment idea-container'>"
              + "<h1 class='title'>" + idea.title + "</h1>"
              + "<p class='body'>" + truncate(idea.body) + "<p>"
-             + "<p>" + idea.quality + "<p>"
+             + "<p class='quality'>" + idea.quality + "<p>"
              + "<div class='ui button promote-button' id='" + idea.id + "'>Promote</div>"
              + "<div class='ui button demote-button' id='" + idea.id + "'>Demote</div>"
              + "<div class='ui button edit-button' id='" + idea.id + "'>Edit</div>"
