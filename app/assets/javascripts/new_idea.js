@@ -37,5 +37,5 @@ function clearForms() {
 }
 
 function displayError() {
-  alert("You need to include a title and a body!")
+  $('#new-idea').append("<p class='error'>You need to include a title and a body!</p>")
 }

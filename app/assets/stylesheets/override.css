@@ -12,7 +12,6 @@
   font-size: 1em;
   font-weight: 800;
   letter-spacing: 0.3em;
-
 }
 
 .idea-search {
@@ -23,6 +22,11 @@
   padding-top: 4em;
   padding-left: 4em;
   padding-right: 4em;
+}
+
+.error {
+  color: #CA1010;
+  font-size: 0.5em;
 }
 .hidden {
   display: none

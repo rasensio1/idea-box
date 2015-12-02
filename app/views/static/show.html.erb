@@ -3,8 +3,9 @@
         <div class="twelve wide center aligned column">
             <h1 class='welcome'>Welcome to the Idea Box</h1>
         </div>
+
         <div class="eight wide column">
-            <h1 class='search'>Create a new Idea</h1>
+            <h1 id='new-idea' class='search'>Create a new Idea</h1>
             <%= form_for [:api, :v1, @idea], html: {class: "ui form"} do |f| %>
               <div class="field">
                   <%= f.text_field :title, placeholder: "Title", class: "field" %>
