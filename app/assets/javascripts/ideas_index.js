@@ -2,8 +2,10 @@ $( document ).ready(function() {
   loadIdeas();
 });
 
-function loadIdeas() {
-  $.getJSON('api/v1/ideas', {order: "created_at desc"})
+function loadIdeas(orderCall) {
+  orderCall = orderCall || "created_at desc"
+
+  $.getJSON('api/v1/ideas', {order: orderCall})
     .then(function(ideas) {
       $('#ideas-container').html(ideas.map(makeIdea));
       prepareActions();
