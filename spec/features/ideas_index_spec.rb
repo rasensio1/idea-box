@@ -129,10 +129,10 @@ RSpec.feature 'the app' do
         visit root_path
 
         find("#sort-by-value").click
-        page.body.should =~ /.*title3.*title1.*title2/
+        page.body.should =~ /.*title3.*title1.*title2.*/
 
         find("#sort-by-value").click
-        page.body.should =~ /.*title2.*title1.*title3/
+        page.body.should =~ /.*title2.*title1.*title3.*/
       end
 
     end
