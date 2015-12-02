@@ -17,10 +17,6 @@ class Api::V1::IdeasController < ApplicationController
     end
   end
 
-  def idea_params
-    {title: params["title"], body: params["body"]}
-  end
-
   def destroy
     my_idea.delete
     render json: true
@@ -29,6 +25,10 @@ class Api::V1::IdeasController < ApplicationController
   private
   def my_idea
     Idea.find(params[:id])
+  end
+
+  def idea_params
+    {title: params["title"], body: params["body"]}
   end
 
   def edit_params
