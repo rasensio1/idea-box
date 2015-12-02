@@ -5,11 +5,15 @@ $( document ).ready(function() {
 function loadIdeas() {
   $.getJSON('api/v1/ideas')
     .then(function(ideas) {
-      $('#ideas-container').html(ideas.map(makeIdea))
+      $('#ideas-container').html(ideas.map(makeIdea));
+      prepareActions();
+    })
+}
+
+function prepareActions() {
       prepareDeleting();
       prepareMoting();
       prepareEditing();
-    })
 }
 
 function makeIdea(idea) {
