@@ -9,7 +9,8 @@ function renderEditForm(node) {
   var body = $(node).siblings('.body').text();
   var id = $(node).attr('id');
   $(node).parent().html(
-      "<form class='ui form'>"
+      "<h3>Edit Idea</h3>"
+    + "<form class='ui form'>"
         + "<div class='field'>" 
             + "<input type='text' name='idea[title]' class='edit_idea_title' id='" + id +"'>" 
         + "</div>"
