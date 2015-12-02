@@ -25,9 +25,9 @@ function prepareEditSubmit() {
     var id = $(this).attr('id')
     $.ajax({
        method: "PATCH",
-       url: "api/v1/ideas/" + ideaId,
+       url: "api/v1/ideas/" + id,
        data: { id: id,
-               title: title
+               title: title,
                body: body},
        success: function() {
          clearIdeas();
