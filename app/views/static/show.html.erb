@@ -1,11 +1,29 @@
-<div>
-  <input type='text' name='page[search]' class='search-field'>
-</div>
-<%= form_for [:api, :v1, @idea] do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_field :body %>
-<% end %>
-<div id="submit-button" class="ui button"><p>Submit</p></div>
+<div id='page-container'>
+    <div class="ui centered grid">
+        <div class="twelve wide center aligned column">
+            <h1 class='welcome'>Welcome to the Idea Box</h1>
+        </div>
 
-<h1>This is the show!</h1>
-<div id="ideas-container"></div>
+        <div class="eight wide column">
+            <h1 id='new-idea' class='search'>Create a new Idea</h1>
+            <%= form_for [:api, :v1, @idea], html: {class: "ui form"} do |f| %>
+              <div class="field">
+                  <%= f.text_field :title, placeholder: "Title", class: "field" %>
+              </div>
+              <div class="field">
+                  <%= f.text_field :body, placeholder: "Body", class: "field"  %>
+              </div>
+              <div id="submit-button" class="ui button"><p>Submit</p></div>
+            <% end %>
+
+            <h1 class='search'>Search your ideas</h1>
+            <div class="ui form">
+                <input id='search-container' type='text' name='page[search]' class='search-field'>
+            </div>
+        </div>
+
+        <div class="eight wide column">
+            <div id="ideas-container"></div>
+        </div>
+    </div>
+</div>

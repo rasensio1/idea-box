@@ -17,15 +17,13 @@ function demoteIdea() {
   });
 }
 
-
 function mote(proOrDemote, ideaId) {
   $.ajax({
      method: "PATCH",
      url: "api/v1/ideas/" + ideaId,
      data: { id: ideaId,
-             dothing: proOrDemote  },
+             qualityChange: proOrDemote },
      success: function() {
-       clearIdeas();
        loadIdeas();
      }
   });

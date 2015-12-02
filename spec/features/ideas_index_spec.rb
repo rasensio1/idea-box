@@ -39,7 +39,7 @@ RSpec.feature 'the app' do
         expect(page).to_not have_content("8")
       end
 
-      xit 'can doesnt add invaid ideas' do
+      it 'can doesnt add invaid ideas' do
         visit root_path
 
         page.fill_in 'idea_body',
@@ -47,7 +47,7 @@ RSpec.feature 'the app' do
 
         find("#submit-button").click
 
-        expect(page).to have_content("nope")
+        expect(page).to have_content("You need to")
       end
     end
 
