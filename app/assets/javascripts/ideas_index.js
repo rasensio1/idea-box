@@ -14,7 +14,7 @@ function renderIdea(idea, index, last) {
   $('#ideas-container')
     .append("<div class='idea-container'>"
              + "<h1 class='title'>" + idea.title + "</h1>"
-             + "<p class='body'>" + idea.body + "<p>"
+             + "<p class='body'>" + truncate(idea.body) + "<p>"
              + "<p>" + idea.quality + "<p>"
              + "<div class='ui button promote-button' id='" + idea.id + "'>Promote</div>"
              + "<div class='ui button demote-button' id='" + idea.id + "'>Demote</div>"
@@ -31,3 +31,20 @@ function renderIdea(idea, index, last) {
 function clearIdeas() {
   $('#ideas-container').children().remove()
 };
+
+function truncate(text) {
+  if (text.length > 100) {
+    return makeShorter(text)
+  } else { return text }
+}
+
+function makeShorter(text) {
+  var fitWords = text.split(' ').reduce(function(agg, word) {
+    if (agg.length < 100) {
+      return agg = agg + " " + word
+    } else {
+      return agg
+    }
+  }, "")
+  return fitWords.split(" ").slice(0, -1).join(' ')
+}
