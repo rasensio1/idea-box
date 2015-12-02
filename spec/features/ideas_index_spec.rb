@@ -100,6 +100,7 @@ RSpec.feature 'the app' do
       it 'can find things that exist' do
         Idea.create!(title: "first", body: "yeah", quality: "billion")
         Idea.create!(title: "firstest", body: "OKOK", quality: "billion")
+        Idea.create!(title: "Rabbit", body: "Hole", quality: "billion")
 
         visit root_path
 
@@ -108,6 +109,7 @@ RSpec.feature 'the app' do
 
         expect(page).to have_content("yeah")
         expect(page).to have_content("OKOK")
+        page.should have_css("hidden")
       end
     end
   end
