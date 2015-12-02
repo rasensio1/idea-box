@@ -3,16 +3,8 @@ $( document ).ready(function() {
 });
 
 function enableFilter() {
-  $(".search-field").keydown(function(event) {
-    console.log("pressed")
-    var keyCode = event.keyCode
-    var lastKey = String.fromCharCode(event.which)
-    if (keyCode === 8) {
-      var raw_search = $(this).val().slice(0, -1)
-    }else {
-      var raw_search = $(this).val() + lastKey
-    }
-    var search = raw_search.toLowerCase()
+  $(".search-field").keyup(function(event) {
+    var search = $(this).val().toLowerCase()
     var ideas = $("#ideas-container").children()
     ideas.removeClass("hidden")
     var hideMe = ideas.filter(function() {
