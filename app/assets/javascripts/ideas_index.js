@@ -6,7 +6,7 @@ function loadIdeas() {
   $.getJSON('api/v1/ideas')
     .then(function(ideas) {
       $('#ideas-container').html(ideas.map(makeIdea))
-      deleteIdea();
+      prepareDeleting();
       prepareMoting();
       prepareEditing();
     })

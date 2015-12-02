@@ -1,4 +1,4 @@
-function deleteIdea() {
+function prepareDeleting() {
   $('.delete-button').click(function() {
 
     var ideaId = $(this).attr('id');
