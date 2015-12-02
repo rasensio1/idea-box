@@ -12,7 +12,7 @@ function loadIdeas() {
 
 function renderIdea(idea, index, last) {
   $('#ideas-container')
-    .append("<div class='idea-container'>"
+    .append("<div class='ui segment idea-container'>"
              + "<h1 class='title'>" + idea.title + "</h1>"
              + "<p class='body'>" + truncate(idea.body) + "<p>"
              + "<p>" + idea.quality + "<p>"
