@@ -21,10 +21,10 @@ function makeIdea(idea) {
      + "<h1 class='title'>"  + idea.title          + "</h1>"
      + "<p class='body'>"    + truncate(idea.body) + "<p>"
      + "<p class='quality'>" + idea.quality        + "<p>"
-     + "<div class='ui button promote-button' id='" + idea.id + "'>Promote</div>"
-     + "<div class='ui button demote-button' id='"  + idea.id + "'>Demote</div>"
-     + "<div class='ui button edit-button' id='"    + idea.id + "'>Edit</div>"
-     + "<div class='ui button delete-button' id='"  + idea.id + "'>Delete</div>"
+     + "<div class='tiny circular ui basic button promote-button' id='" + idea.id + "'>Promote</div>"
+     + "<div class='tiny circular ui basic button demote-button' id='"  + idea.id + "'>Demote</div>"
+     + "<div class='ui basic yellow right floated button edit-button' id='"    + idea.id + "'>Edit</div>"
+     + "<div class='ui basic red right floated button delete-button' id='"  + idea.id + "'>Delete</div>"
      + "</div>")
 }
 

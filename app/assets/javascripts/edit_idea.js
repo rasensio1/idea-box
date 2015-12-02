@@ -23,7 +23,12 @@ function renderEditForm(node) {
     + "</form>")
 
   $("#"+id+".edit_idea_title").val(title)
-  $("#"+id+".edit_idea_body").val(body)
+
+  $.getJSON('api/v1/ideas/' + id)
+  .then(function(idea){ 
+    $("#"+id+".edit_idea_body").val(idea.body)
+    })
+
   prepareEditSubmit();
 };
 
@@ -32,7 +37,6 @@ function prepareEditSubmit() {
     var title = $(this).siblings().children('.edit_idea_title').val()
     var body = $(this).siblings().children('.edit_idea_body').val()
     var id = $(this).attr('id')
-    debugger;
     $.ajax({
        method: "PATCH",
        url: "api/v1/ideas/" + id,

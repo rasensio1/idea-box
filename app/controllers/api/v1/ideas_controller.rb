@@ -1,4 +1,8 @@
 class Api::V1::IdeasController < ApplicationController
+
+  def show
+    render json: my_idea
+  end
   def index
     render json: Idea.order(created_at: :desc)
   end
