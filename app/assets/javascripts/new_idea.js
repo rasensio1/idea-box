@@ -4,22 +4,15 @@ $( document ).ready(function() {
 
 function newIdea() {
   $('#submit-button').click(function() {
-
-    $.ajax({
-       method: "POST",
-       url: "api/v1/ideas",
-       data: { title: getTitle(),
-               body: getBody() 
-             },
-       success: function() {
-         clearIdeas();
-         loadIdeas()
-         clearForms()
-       },
-       error: function () {
-         displayError()
-       }
-    });
+    $.post( "api/v1/ideas", { title: getTitle(), 
+                             body: getBody() })
+      .then(function() {
+        loadIdeas();
+        clearForms();
+      })
+      .fail(function() {
+        displayError()
+      })
   });
 }
 
