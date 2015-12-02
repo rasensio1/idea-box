@@ -6,7 +6,6 @@ function prepareEditing() {
 
 function renderEditForm(node) {
   var title = $(node).siblings('.title').text();
-  var body = $(node).siblings('.body').text();
   var id = $(node).attr('id');
   $(node).parent().html(
       "<h3>Edit Idea</h3>"
@@ -24,13 +23,18 @@ function renderEditForm(node) {
 
   $("#"+id+".edit_idea_title").val(title)
 
+  setEditBody(id)
+
+
+  prepareEditSubmit();
+};
+
+function setEditBody(id) {
   $.getJSON('api/v1/ideas/' + id)
   .then(function(idea){ 
     $("#"+id+".edit_idea_body").val(idea.body)
     })
-
-  prepareEditSubmit();
-};
+}
 
 function prepareEditSubmit() {
   $(".edit_idea_submit").click(function() {
