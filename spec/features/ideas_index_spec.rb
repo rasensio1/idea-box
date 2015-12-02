@@ -32,6 +32,13 @@ RSpec.feature 'the app' do
         expect(page).to have_content("thousand")
       end
 
+      it 'truncates idea body if greater than 100 chars' do
+      Idea.create!(title: "long body", body: "1234 1234 1234 1234 1234 1234 1234 1234 1234 1234 1234 1234 1234 1234 1234 1234 1234 1234 1234 1234  6 WOOHOO  8")
+        expect(page).to_not have_content("6")
+        expect(page).to_not have_content("WOOHOO")
+        expect(page).to_not have_content("8")
+      end
+
       xit 'can doesnt add invaid ideas' do
         visit root_path
 
