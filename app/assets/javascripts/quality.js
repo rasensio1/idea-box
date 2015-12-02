@@ -25,7 +25,6 @@ function mote(proOrDemote, ideaId) {
      data: { id: ideaId,
              qualityChange: proOrDemote  },
      success: function() {
-       clearIdeas();
        loadIdeas();
      }
   });
