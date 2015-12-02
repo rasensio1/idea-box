@@ -30,7 +30,6 @@ function prepareEditSubmit() {
                title: title,
                body: body},
        success: function() {
-         clearIdeas();
          loadIdeas();
        }
     });
