@@ -22,9 +22,7 @@ function renderEditForm(node) {
     + "</form>")
 
   $("#"+id+".edit_idea_title").val(title)
-
   setEditBody(id)
-
 
   prepareEditSubmit();
 };
