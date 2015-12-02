@@ -3,23 +3,25 @@ $( document ).ready(function() {
 });
 
 function enableFilter() {
-  $(".search-field").keypress(function(event) {
+  $(".search-field").keydown(function(event) {
     console.log("pressed")
-    var search = $(this).val() + String.fromCharCode(event.which)
+    var keyCode = event.keyCode
+    var lastKey = String.fromCharCode(event.which)
+    if (keyCode === 8) {
+      var raw_search = $(this).val().slice(0, -1)
+    }else {
+      var raw_search = $(this).val() + lastKey
+    }
+    var search = raw_search.toLowerCase()
     var ideas = $("#ideas-container").children()
+    ideas.removeClass("hidden")
     var hideMe = ideas.filter(function() {
       var title = $(this).children('.title').text()
       var body = $(this).children('.body').text()
-      var searchIn = title + body
+      var searchIn = (title + body).toLowerCase()
       return !(searchIn.indexOf(search) > -1)
     })
-    debugger;
+    hideMe.addClass("hidden")
   })
 };
-
-function applyHide(elements) {
-  elements.forEach(function(elem) {
-    $(elem).toggleClass("hidden")
-  })
-}
 
