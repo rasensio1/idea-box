@@ -109,7 +109,7 @@ RSpec.feature 'the app' do
 
         expect(page).to have_content("yeah")
         expect(page).to have_content("OKOK")
-        page.should have_css("hidden")
+        expect(page).to_not have_content("Rabbit")
       end
     end
   end
