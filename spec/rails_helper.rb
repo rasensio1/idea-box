@@ -18,7 +18,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
-    Simplecov.start('rails')
+    SimpleCov.start('rails')
   end
 
   config.before(:each) do
