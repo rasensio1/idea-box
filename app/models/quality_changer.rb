@@ -1,14 +1,9 @@
 class QualityChanger
   def self.go(params, old_quality)
-    if params["qualityChange"]
-      if params["qualityChange"] == "promote"
-        promote(old_quality)
-      else
-        demote(old_quality)
-      end
-    else
-      old_quality
-    end
+    options = {"promote" => lambda {promote(old_quality)},
+               "demote" => lambda {demote(old_quality)}}
+    options.default_proc =  proc { |h,k| return old_quality }
+    options[params["qualityChange"]].call
   end
 
   def self.demote(old_quality)
