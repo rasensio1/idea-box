@@ -12,23 +12,17 @@ class QualityChanger
   end
 
   def self.demote(old_quality)
-    if old_quality == "thousand"
-      "thousand"
-    elsif old_quality == "million"
-      "thousand"
-    else
-      "million"
-    end
+    options = {"thousand" => "thousand",
+               "million" => "thousand",
+               "billion" => "million"}
+    options[old_quality]
   end
 
   def self.promote(old_quality)
-    if old_quality == "thousand"
-      "million"
-    elsif old_quality == "million"
-      "billion"
-    else
-      "billion"
-    end
+    options = {"thousand" => "million",
+               "million" => "billion",
+               "billion" => "billion"}
+    options[old_quality]
   end
     
 end
