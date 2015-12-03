@@ -119,6 +119,23 @@ RSpec.feature 'the app' do
         expect(page).to_not have_content("Rabbit")
       end
     end
+
+    describe 'sorting' do
+      it 'can sort based on quality' do
+        Idea.create!(title: "title1", body: "yeah", quality: "million")
+        Idea.create!(title: "title2", body: "yeah", quality: "thousand")
+        Idea.create!(title: "title3", body: "yeah", quality: "billion")
+
+        visit root_path
+
+        find("#sort-by-value").click
+        page.body.should =~ /.*title3.*title1.*title2.*/
+
+        find("#sort-by-value").click
+        page.body.should =~ /.*title2.*title1.*title3.*/
+      end
+
+    end
   end
 end
 

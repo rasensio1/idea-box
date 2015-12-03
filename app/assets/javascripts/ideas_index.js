@@ -2,8 +2,10 @@ $( document ).ready(function() {
   loadIdeas();
 });
 
-function loadIdeas() {
-  $.getJSON('api/v1/ideas')
+function loadIdeas(orderCall) {
+  orderCall = orderCall || "created_at desc"
+
+  $.getJSON('api/v1/ideas', {order: orderCall})
     .then(function(ideas) {
       $('#ideas-container').html(ideas.map(makeIdea));
       prepareActions();
@@ -20,7 +22,7 @@ function makeIdea(idea) {
   return("<div class='ui segment idea-container'>"
      + "<h1 class='title'>"  + idea.title          + "</h1>"
      + "<p class='body'>"    + truncate(idea.body) + "<p>"
-     + "<p class='quality'>" + idea.quality        + "<p>"
+     + "<p class='quality'>" + idea.quality        + " dollar idea<p>"
      + "<div class='tiny circular ui basic button promote-button' id='" + idea.id + "'>Promote</div>"
      + "<div class='tiny circular ui basic button demote-button' id='"  + idea.id + "'>Demote</div>"
      + "<div class='ui basic yellow right floated button edit-button' id='"    + idea.id + "'>Edit</div>"
