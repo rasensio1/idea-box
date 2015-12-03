@@ -4,7 +4,7 @@
             <h1 class='welcome'>Welcome to the Idea Box</h1>
         </div>
 
-        <div class="eight wide column">
+        <div class="six wide column">
             <h1 id='new-idea' class='search'>Create a new Idea</h1>
             <%= form_for [:api, :v1, @idea], html: {class: "ui form"} do |f| %>
               <div class="field">
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="eight wide column">
+        <div class="ten wide column">
           <h1 class='ui right floated button' id='sort-by-value'>Sort by quality</h1>
             <div id="ideas-container"></div>
         </div>
